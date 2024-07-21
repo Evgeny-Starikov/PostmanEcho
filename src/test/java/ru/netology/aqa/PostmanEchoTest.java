@@ -11,13 +11,14 @@ public class PostmanEchoTest {
 
         String text = "Hi";
         given()
-                .baseUri("https://postman-echo.com")
+                .baseUri("http://postman-echo.com")
                 .body("some data") // отправляемые данные (заголовки и query можно выставлять аналогично)
                 .when()
                 .post("/post")
                 .then()
                 .statusCode(200)
-                .body("data", org.hamcrest.Matchers.equalTo("Hi"));
+                .body("data", org.hamcrest.Matchers.equalTo("some data"))
+        ;
 
     }
 }
